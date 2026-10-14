@@ -16,10 +16,12 @@
 </head>
 <body>
 <div id="top"></div>
-<iframe src="app.html?v=20261013c" title="ALPHAYANTRA" allow="clipboard-write"></iframe>
+<iframe src="app.html?v=20261014" title="ALPHAYANTRA" allow="clipboard-write"></iframe>
+<script src="push-config.js"></script>
+<script src="push.js"></script>
 <script>
 (function(){var f=document.querySelector('iframe');function fit(){var t=document.getElementById('top').getBoundingClientRect().height||0;f.style.height=(window.innerHeight-t)+'px';}
 window.addEventListener('resize',fit);window.addEventListener('orientationchange',function(){setTimeout(fit,300);});fit();setTimeout(fit,500);})();
-if('serviceWorker' in navigator){window.addEventListener('load',function(){var rl=false;navigator.serviceWorker.addEventListener('controllerchange',function(){if(rl)return;rl=true;location.reload();});navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(r){r.update();}).catch(function(){});});}</script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){var rl=false;navigator.serviceWorker.addEventListener('controllerchange',function(){if(rl)return;rl=true;location.reload();});navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(r){r.update();navigator.serviceWorker.ready.then(function(rr){if(rr.active)rr.active.postMessage({type:'ay-check'});});}).catch(function(){});});}</script>
 </body>
 </html>
