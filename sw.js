@@ -1,7 +1,7 @@
 /* Alphayantra viewer service worker: app shell cached for offline, network-first so updates land on the next open.
-   + push notifications (FCM web push payload shown here), tap → opens the app,
+   + push notifications (standard Web Push payload {title,body,tag,url} from the Cloudflare relay), tap → opens the app,
    + periodic background sync fallback: compares trend-states.json with the last seen states for the stored watchlist (Chrome/Android only). */
-var V='ay-viewer-v49',SHELL=['./','./index.html','./app.html','./app.html?v=20261016b','./manifest.json','./icon-192.png','./icon-512.png','./push.js','./push-config.js'];
+var V='ay-viewer-v52',SHELL=['./','./index.html','./app.html','./app.html?v=20261016e','./manifest.json','./icon-192.png','./icon-512.png','./push.js','./push-config.js'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(SHELL.map(function(u){return new Request(u,{cache:'reload'});}));}).then(function(){return self.skipWaiting();}));});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V&&k!=='ay-push-store';}).map(function(k){return caches.delete(k);}));}).then(function(){return self.clients.claim();}));});
 self.addEventListener('fetch',function(e){
@@ -14,9 +14,9 @@ self.addEventListener('fetch',function(e){
 /* ---- notifications ---- */
 function showNote(title,body,tag){return self.registration.showNotification(title||'ALPHAYANTRA',{body:body||'',icon:'./icon-192.png',badge:'./icon-192.png',tag:tag||'ay-trend',renotify:true,data:{url:'./'}});}
 self.addEventListener('push',function(e){
-  var d={};try{d=e.data?e.data.json():{};}catch(x){d={notification:{title:'ALPHAYANTRA',body:e.data?e.data.text():''}};}
+  var d={};try{d=e.data?e.data.json():{};}catch(x){d={title:'ALPHAYANTRA',body:e.data?e.data.text():''};}
   var n=d.notification||{},x=d.data||{};
-  e.waitUntil(showNote(n.title||x.title,n.body||x.body,x.tag));
+  e.waitUntil(showNote(d.title||n.title||x.title,d.body||n.body||x.body,d.tag||x.tag));
 });
 self.addEventListener('notificationclick',function(e){
   e.notification.close();
