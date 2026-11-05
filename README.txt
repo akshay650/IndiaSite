@@ -85,3 +85,7 @@ If you ever regenerate the VAPID keys, every phone must TURN ON again.
 15 Oct 2026 (final) build: data pack rebuilt from the 15 Oct export (2230 stocks incl. new BSE listings, as of 14 Oct). sw.js cache ay-viewer-v30, index.html iframes app.html?v=20261015j. Upload index.html, app.html, sw.js, trend-states.json.
 
 16 Oct 2026 build — PUSH WITHOUT FIREBASE: standard Web Push via Cloudflare relay; watchlist up to 50; SEND TEST button. sw.js cache ay-viewer-v52, index.html iframes app.html?v=20261016e. Upload index.html, app.html, sw.js, push.js, push-config.js, trend-states.json together. Set up the Worker + Apps Script per NOTIFICATIONS (the old Firebase project is no longer used).
+
+26 Oct 2026 build — EXTENDED ⚑ (LONG, stocks: uptrend + close ≥60% above the 30-week EMA) chip/flag/filter next to PULLBACK; tighter mobile legend so SCREENER fits the top row. sw.js cache ay-viewer-v54, index.html iframes app.html?v=20261026a. Upload index.html, app.html, sw.js.
+
+5 Nov 2026 build: app.html = viewer with the Nov 5 pack (all universes as of 4 Nov 2026), redesigned DAILY/WEEKLY BRIEF (uptrend-only cards, all four universes, phone/landscape compact), charcoal + gold theme (dark & light), viewer pack-load race fix. sw.js cache ay-viewer-v57, index.html iframes app.html?v=20261105a, manifest/index theme colour #0a0a0b. Upload index.html, app.html, sw.js, trend-states.json, manifest.json together (replace).
