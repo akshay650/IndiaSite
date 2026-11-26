@@ -1,9 +1,9 @@
 ALPHAYANTRA - installable web app (PWA) - 26 Nov 2026 build (revamped viewer)
 
 UPLOAD (replace) these into the same https folder as before, e.g. https://alphayantra.in/app/
-  index.html         app shell - now iframes app.html?v=20261126b
+  index.html         app shell - now iframes app.html?v=20261126c
   app.html           the NEW viewer (revamped UI), data as of 26 Nov 2026 baked in
-  sw.js              service worker - cache ay-viewer-v129 (old cache is dropped automatically)
+  sw.js              service worker - cache ay-viewer-v130 (old cache is dropped automatically)
   manifest.json      name, icons, full-screen mode (background now #000000)
   trend-states.json  per-stock trend file for 26 Nov 2026 (S = daily, L = last completed week)
   sec-map.js         sector / industry map (Chembond = Chemicals / Chemicals, NSDL = Finance / Depository Services)
@@ -12,6 +12,12 @@ UPLOAD (replace) these into the same https folder as before, e.g. https://alphay
   now ends only on the SMA + relative-strength exit. Screeners (desktop, stocks) show an INDUSTRY column.
   IMPORTANT: export the daily pack with the NEW ALPHAYANTRA-Exporter.html from now on - a pack from the old exporter still
   carries the EMA exits and would bring them back.
+26 Nov (c) - end of day build:
+  LONG "since change" now runs to the latest price (was stuck at last week's close); LONG "In screener" for stocks = last 4 weeks.
+  TrendMatrix: Industry column, one-line toolbar (U / D labels), retrigger diamonds, bar hover / tap shows trend start + retriggers
+  with dates, prices and % change; export = the original 15-column .xlsx. Peers show U / D since. Icons for Pullback / Extended /
+  Bearish engulfing. Landscape: bigger fixed chart, left-only notch gap. Phone: fixed tab bar with Rotation, readable names.
+  Funds are LONG only in this viewer. Light mode bars are green / red.
 KEEP on the server as they are: icon-192.png, icon-512.png, apple-touch-icon.png and any other icon files.
 Always upload index.html, app.html and sw.js TOGETHER.
 
@@ -23,7 +29,7 @@ DAILY DATA WITHOUT RE-UPLOADING app.html
   If neither is reachable the baked-in 26 Nov data is shown.
   To check on a phone: type ??data in the search box - it lists the sources and what was loaded.
 
-NEXT CODE UPDATE: replace app.html, then change BOTH the ?v=... in index.html and in sw.js, and bump ay-viewer-v129 -> v130.
+NEXT CODE UPDATE: replace app.html, then change BOTH the ?v=... in index.html and in sw.js, and bump ay-viewer-v130 -> v131.
 PHONES: users get the new version on the next open while online (one automatic reload). Nothing to reinstall.
   If a phone still shows the old screen: close the app fully and open again while online.
 
