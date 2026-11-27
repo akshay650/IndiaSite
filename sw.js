@@ -1,6 +1,6 @@
 /* Alphayantra viewer service worker: app shell cached for offline, network-first so updates land on the next open.
    (push notifications removed 8 Nov 2026) */
-var V='ay-viewer-v137',SHELL=['./','./index.html','./app.html','./app.html?v=20261127f','./manifest.json','./icon-192.png','./icon-512.png'];
+var V='ay-viewer-v140',SHELL=['./','./index.html','./app.html','./app.html?v=20261127i','./manifest.json','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return Promise.all(SHELL.map(function(u){return c.add(new Request(u,{cache:'reload'})).catch(function(){});}));}).then(function(){return self.skipWaiting();}));});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V;}).map(function(k){return caches.delete(k);}));}).then(function(){return self.clients.claim();}));});
 self.addEventListener('fetch',function(e){
