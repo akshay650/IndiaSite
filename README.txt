@@ -1,9 +1,9 @@
 ALPHAYANTRA - installable web app (PWA) - 26 Nov 2026 build (revamped viewer)
 
 UPLOAD (replace) these into the same https folder as before, e.g. https://alphayantra.in/app/
-  index.html         app shell - now iframes app.html?v=20261126c
+  index.html         app shell - now iframes app.html?v=20261126d
   app.html           the NEW viewer (revamped UI), data as of 26 Nov 2026 baked in
-  sw.js              service worker - cache ay-viewer-v130 (old cache is dropped automatically)
+  sw.js              service worker - cache ay-viewer-v131 (old cache is dropped automatically)
   manifest.json      name, icons, full-screen mode (background now #000000)
   trend-states.json  per-stock trend file for 26 Nov 2026 (S = daily, L = last completed week)
   sec-map.js         sector / industry map (Chembond = Chemicals / Chemicals, NSDL = Finance / Depository Services)
@@ -29,7 +29,7 @@ DAILY DATA WITHOUT RE-UPLOADING app.html
   If neither is reachable the baked-in 26 Nov data is shown.
   To check on a phone: type ??data in the search box - it lists the sources and what was loaded.
 
-NEXT CODE UPDATE: replace app.html, then change BOTH the ?v=... in index.html and in sw.js, and bump ay-viewer-v130 -> v131.
+NEXT CODE UPDATE: replace app.html, then change BOTH the ?v=... in index.html and in sw.js, and bump ay-viewer-v131 -> v132.
 PHONES: users get the new version on the next open while online (one automatic reload). Nothing to reinstall.
   If a phone still shows the old screen: close the app fully and open again while online.
 
